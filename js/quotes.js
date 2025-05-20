@@ -6,44 +6,56 @@
 // Collection of motivational quotes
 const quotes = [
     {
-        text: "Productivity is never an accident. It is always the result of intelligent effort.",
-        author: "Paul J. Meyer"
+        text: "Be tolerant with others and strict with yourself.",
+        author: "Marcus Aurelius"
     },
     {
-        text: "Focus on being productive instead of busy.",
-        author: "Tim Ferriss"
+        text: "Because most of what we say and do is not essential. Ask yourself at every moment, 'Is this necessary?'",
+        author: "Marcus Aurelius"
     },
     {
-        text: "You can do anything, but not everything.",
-        author: "David Allen"
+        text: "The impediment to action advances action. What stands in the way becomes the way.",
+        author: "Marcus Aurelius"
     },
     {
-        text: "The key is not to prioritize what's on your schedule, but to schedule your priorities.",
-        author: "Stephen Covey"
+        text: "You're better off not giving the small things more time than they deserve.",
+        author: "Marcus Aurelius"
     },
     {
-        text: "It's not knowing what to do, it's doing what you know.",
-        author: "Tony Robbins"
+        text: "Luck is what happens when preparation meets opportunity.",
+        author: "Seneca"
     },
     {
-        text: "The way to get started is to quit talking and begin doing.",
-        author: "Walt Disney"
+        text: "We suffer more often in imagination than in reality.",
+        author: "Seneca"
     },
     {
-        text: "Don't count the days, make the days count.",
-        author: "Muhammad Ali"
+        text: "They lose the day in expectation of the night, and the night in fear of the dawn.",
+        author: "Seneca"
     },
     {
-        text: "The only way to do great work is to love what you do.",
-        author: "Steve Jobs"
+        text: "He suffers more than necessary, who suffers before it is necessary.",
+        author: "Seneca"
     },
     {
-        text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
-        author: "Winston Churchill"
+        text: "Concentrate all your thoughts upon the work at hand. The sun's rays do not burn until brought to a focus.",
+        author: "Alexander Graham Bell"
     },
     {
-        text: "The future depends on what you do today.",
-        author: "Mahatma Gandhi"
+        text: "The successful warrior is the average man, with laser-like focus.",
+        author: "Bruce Lee"
+    },
+    {
+        text: "It is wise to direct your anger towards problems – not people; to focus your energies on answers – not excuses.",
+        author: "William Arthur Ward"
+    },
+    {
+        text: "One look at an email can rob you of 15 minutes of focus. One call on your cell phone, one tweet, one instant message can destroy your schedule, forcing you to move meetings, or blow off really important things, like love, and friendship.",
+        author: "Jacqueline Leo"
+    },
+    {
+        text: "When walking, walk. When eating, eat.",
+        author: "Zen proverb"
     }
 ];
 

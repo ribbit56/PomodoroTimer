@@ -9,6 +9,7 @@ const timerLabel = document.getElementById('timer-label');
 const startBtn = document.getElementById('start-btn');
 const pauseBtn = document.getElementById('pause-btn');
 const resetBtn = document.getElementById('reset-btn');
+const skipBtn = document.getElementById('skip-btn');
 const progressRing = document.querySelector('.progress-ring-circle');
 
 // Timer state
@@ -105,7 +106,6 @@ function startTimer() {
     timerState.isRunning = true;
     startBtn.disabled = true;
     pauseBtn.disabled = false;
-    timerDisplay.classList.add('active');
     
     // If starting a new focus session, display a motivational quote
     if (timerState.mode === 'focus' && timerState.timeRemaining === timerState.totalDuration) {
@@ -132,7 +132,6 @@ function pauseTimer() {
     clearInterval(timerState.interval);
     startBtn.disabled = false;
     pauseBtn.disabled = true;
-    timerDisplay.classList.remove('active');
 }
 
 /**
@@ -188,10 +187,43 @@ function completeTimer() {
         switchMode('focus');
         showNotification('Focus time!', 'Ready to get back to work?');
         
+        // Display a new motivational quote
+        displayRandomQuote();
+        
         // Auto-start focus if enabled
         if (settings.autoStartFocus) {
             setTimeout(startTimer, 1000);
         }
+    }
+}
+
+/**
+ * Skip the current timer and move to the next phase
+ */
+function skipTimer() {
+    pauseTimer();
+    
+    if (timerState.mode === 'focus') {
+        // Skip focus session and move to break
+        // We still count it as completed for statistics
+        timerState.sessionsCompleted++;
+        updateStats();
+        
+        // Determine if it's time for a long break
+        if (timerState.sessionsCompleted % settings.sessionsUntilLongBreak === 0) {
+            switchMode('longBreak');
+            showNotification('Skipped to long break', 'Take some time to relax and recharge.');
+        } else {
+            switchMode('break');
+            showNotification('Skipped to break', 'Take a short break to refresh your mind.');
+        }
+    } else {
+        // Skip break and move to focus
+        switchMode('focus');
+        showNotification('Skipped to focus time', 'Ready to get back to work?');
+        
+        // Display a new motivational quote
+        displayRandomQuote();
     }
 }
 
@@ -303,6 +335,7 @@ function initTimer() {
     startBtn.addEventListener('click', startTimer);
     pauseBtn.addEventListener('click', pauseTimer);
     resetBtn.addEventListener('click', resetTimer);
+    skipBtn.addEventListener('click', skipTimer);
     
     // Set up settings change listeners
     const settingsInputs = document.querySelectorAll('.setting input');
