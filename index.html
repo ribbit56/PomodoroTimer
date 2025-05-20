@@ -34,45 +34,51 @@
         </header>
 
         <main>
-            <div class="timer-container">
-                <div class="timer-display">
-                    <div class="progress-ring-container">
-                        <svg class="progress-ring" width="300" height="300">
-                            <circle class="progress-ring-circle-bg" cx="150" cy="150" r="120" />
-                            <circle class="progress-ring-circle" cx="150" cy="150" r="120" />
-                        </svg>
-                        <div class="timer-content">
-                            <div id="timer" class="timer">25:00</div>
-                            <div id="timer-label" class="timer-label">Focus Time</div>
+            <div class="app-layout">
+                <div class="left-column">
+                    <div class="timer-container">
+                        <div class="timer-display">
+                            <div class="progress-ring-container">
+                                <svg class="progress-ring" width="300" height="300">
+                                    <circle class="progress-ring-circle-bg" cx="150" cy="150" r="120" />
+                                    <circle class="progress-ring-circle" cx="150" cy="150" r="120" />
+                                </svg>
+                                <div class="timer-content">
+                                    <div id="timer" class="timer">25:00</div>
+                                    <div id="timer-label" class="timer-label">Focus Time</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timer-controls">
+                            <button id="start-btn" class="btn primary-btn">Start</button>
+                            <button id="pause-btn" class="btn secondary-btn" disabled>Pause</button>
+                            <button id="reset-btn" class="btn secondary-btn">Reset</button>
+                            <button id="skip-btn" class="btn secondary-btn">Skip</button>
+                        </div>
+                        
+                        <div id="quote-container" class="quote-container">
+                            <p id="quote-text" class="quote-text"></p>
+                            <p id="quote-author" class="quote-author"></p>
                         </div>
                     </div>
                 </div>
-
-                <div class="timer-controls">
-                    <button id="start-btn" class="btn primary-btn">Start</button>
-                    <button id="pause-btn" class="btn secondary-btn" disabled>Pause</button>
-                    <button id="reset-btn" class="btn secondary-btn">Reset</button>
-                    <button id="skip-btn" class="btn secondary-btn">Skip</button>
-                </div>
                 
-                <div id="quote-container" class="quote-container">
-                    <p id="quote-text" class="quote-text"></p>
-                    <p id="quote-author" class="quote-author"></p>
+                <div class="right-column">
+                    <div class="tasks-container">
+                        <div class="tasks-header">
+                            <h2>Tasks</h2>
+                            <button id="clear-tasks-btn" class="clear-tasks-btn">Clear All</button>
+                        </div>
+                        <div class="task-input-container">
+                            <input type="text" id="task-input" class="task-input" placeholder="Add a task...">
+                            <button id="add-task-btn" class="add-task-btn">Add</button>
+                        </div>
+                        <ul id="task-list" class="task-list">
+                            <!-- Tasks will be added here dynamically -->
+                        </ul>
+                    </div>
                 </div>
-            </div>
-
-            <div class="tasks-container">
-                <div class="tasks-header">
-                    <h2>Tasks</h2>
-                    <button id="clear-tasks-btn" class="clear-tasks-btn">Clear All</button>
-                </div>
-                <div class="task-input-container">
-                    <input type="text" id="task-input" class="task-input" placeholder="Add a task...">
-                    <button id="add-task-btn" class="add-task-btn">Add</button>
-                </div>
-                <ul id="task-list" class="task-list">
-                    <!-- Tasks will be added here dynamically -->
-                </ul>
             </div>
 
             <div class="settings-container">
