@@ -13,9 +13,9 @@
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
-    --container-bg: #fff;
-    --stats-bg: #f5f5f5;
-    --progress-bg: #f0f0f0;
+    --container-bg: rgba(255, 255, 255, 0.7);
+    --stats-bg: rgba(245, 245, 245, 0.7);
+    --progress-bg: rgba(240, 240, 240, 0.7);
     --header-color: #000;
 }
 
@@ -28,9 +28,9 @@
     --light-gray: #444;
     --dark-gray: #aaa;
     --white: #2a2a2a;
-    --container-bg: #2a2a2a;
-    --stats-bg: #333;
-    --progress-bg: #333;
+    --container-bg: rgba(42, 42, 42, 0.7);
+    --stats-bg: rgba(51, 51, 51, 0.7);
+    --progress-bg: rgba(51, 51, 51, 0.7);
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --header-color: #fff;
 }
@@ -631,6 +631,7 @@ button:disabled {
     width: 300px;
     height: 300px;
     margin: 0 auto;
+    background-color: transparent;
 }
 
 .progress-ring {
@@ -651,6 +652,7 @@ button:disabled {
     fill: none;
     stroke: var(--progress-bg);
     stroke-width: 8px;
+    opacity: 0.4;
 }
 
 .progress-ring-circle {
@@ -661,6 +663,7 @@ button:disabled {
     stroke-dasharray: 754;
     stroke-dashoffset: 754;
     transition: stroke-dashoffset 0.5s ease;
+    opacity: 0.9;
 }
 
 /* Fade Transition for Theme Switch */
