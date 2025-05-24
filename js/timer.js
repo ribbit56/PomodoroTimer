@@ -98,6 +98,93 @@ function saveSettings() {
 }
 
 /**
+ * Initialize settings and event listeners
+ */
+function initSettings() {
+    // Get DOM elements
+    const focusDurationInput = document.getElementById('focus-duration');
+    const breakDurationInput = document.getElementById('break-duration');
+    const longBreakDurationInput = document.getElementById('long-break-duration');
+    const sessionsUntilLongBreakInput = document.getElementById('sessions-until-long-break');
+    const soundEnabledInput = document.getElementById('sound-enabled');
+    const autoStartBreaksInput = document.getElementById('auto-start-breaks');
+    const autoStartFocusInput = document.getElementById('auto-start-focus');
+    
+    const settingsBtn = document.getElementById('settings-btn');
+    const settingsDropdownContent = document.getElementById('settings-dropdown-content');
+    
+    // Load saved settings
+    loadSettings();
+    
+    // Update input values
+    focusDurationInput.value = settings.focusDuration;
+    breakDurationInput.value = settings.breakDuration;
+    longBreakDurationInput.value = settings.longBreakDuration;
+    sessionsUntilLongBreakInput.value = settings.sessionsUntilLongBreak;
+    soundEnabledInput.checked = settings.soundEnabled;
+    autoStartBreaksInput.checked = settings.autoStartBreaks;
+    autoStartFocusInput.checked = settings.autoStartFocus;
+    
+    // Add event listeners
+    focusDurationInput.addEventListener('change', () => {
+        settings.focusDuration = parseInt(focusDurationInput.value);
+        saveSettings();
+        if (timerState.mode === 'focus' && !timerState.isRunning) {
+            resetTimer();
+        }
+    });
+    
+    breakDurationInput.addEventListener('change', () => {
+        settings.breakDuration = parseInt(breakDurationInput.value);
+        saveSettings();
+        if (timerState.mode === 'break' && !timerState.isRunning) {
+            resetTimer();
+        }
+    });
+    
+    longBreakDurationInput.addEventListener('change', () => {
+        settings.longBreakDuration = parseInt(longBreakDurationInput.value);
+        saveSettings();
+        if (timerState.mode === 'longBreak' && !timerState.isRunning) {
+            resetTimer();
+        }
+    });
+    
+    sessionsUntilLongBreakInput.addEventListener('change', () => {
+        settings.sessionsUntilLongBreak = parseInt(sessionsUntilLongBreakInput.value);
+        saveSettings();
+    });
+    
+    soundEnabledInput.addEventListener('change', () => {
+        settings.soundEnabled = soundEnabledInput.checked;
+        saveSettings();
+    });
+    
+    autoStartBreaksInput.addEventListener('change', () => {
+        settings.autoStartBreaks = autoStartBreaksInput.checked;
+        saveSettings();
+    });
+    
+    autoStartFocusInput.addEventListener('change', () => {
+        settings.autoStartFocus = autoStartFocusInput.checked;
+        saveSettings();
+    });
+    
+    // Toggle settings dropdown
+    settingsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        settingsDropdownContent.classList.toggle('show');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!settingsBtn.contains(e.target) && !settingsDropdownContent.contains(e.target)) {
+            settingsDropdownContent.classList.remove('show');
+        }
+    });
+}
+
+/**
  * Start the timer
  */
 function startTimer() {
@@ -347,5 +434,8 @@ function initTimer() {
     });
 }
 
-// Initialize timer when DOM is loaded
-document.addEventListener('DOMContentLoaded', initTimer);
+// Initialize timer and settings when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initTimer();
+    initSettings();
+});

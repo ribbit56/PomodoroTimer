@@ -20,15 +20,75 @@
     <div class="container">
         <header>
             <div class="header-content">
+                <div class="left-controls">
+                    <div class="theme-toggle">
+                        <button id="theme-toggle-btn" class="btn theme-btn">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </button>
+                    </div>
+                    <div class="settings-dropdown">
+                        <button id="settings-btn" class="btn settings-btn">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </button>
+                        <div class="settings-dropdown-content" id="settings-dropdown-content">
+                            <div class="settings-group">
+                                <div class="setting">
+                                    <label for="focus-duration">Focus (min)</label>
+                                    <input type="number" id="focus-duration" min="1" max="60" value="25">
+                                </div>
+                                <div class="setting">
+                                    <label for="break-duration">Break (min)</label>
+                                    <input type="number" id="break-duration" min="1" max="30" value="5">
+                                </div>
+                                <div class="setting">
+                                    <label for="long-break-duration">Long Break (min)</label>
+                                    <input type="number" id="long-break-duration" min="1" max="60" value="15">
+                                </div>
+                                <div class="setting">
+                                    <label for="sessions-until-long-break">Sessions Until Long Break</label>
+                                    <input type="number" id="sessions-until-long-break" min="1" max="10" value="4">
+                                </div>
+                                <div class="setting checkbox-setting">
+                                    <label for="sound-enabled">Sound Notifications</label>
+                                    <input type="checkbox" id="sound-enabled" checked>
+                                </div>
+                                <div class="setting checkbox-setting">
+                                    <label for="auto-start-breaks">Auto-start Breaks</label>
+                                    <input type="checkbox" id="auto-start-breaks">
+                                </div>
+                                <div class="setting checkbox-setting">
+                                    <label for="auto-start-focus">Auto-start Focus</label>
+                                    <input type="checkbox" id="auto-start-focus">
+                                </div>
+                                <div class="stats-section">
+                                    <h3>Statistics</h3>
+                                    <div class="stats-grid">
+                                        <div class="stat">
+                                            <div class="stat-value" id="completed-sessions">0</div>
+                                            <div class="stat-label">Sessions</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-value" id="total-focus-time">0</div>
+                                            <div class="stat-label">Minutes</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-value" id="current-streak">0</div>
+                                            <div class="stat-label">Streak</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="header-text">
                     <h1>Pomodoro Timer</h1>
                     <p class="subtitle">Focus on the task at hand.</p>
                 </div>
-                <div class="theme-toggle">
-                    <button id="theme-toggle-btn" class="btn theme-btn">
-                        <i class="fas fa-moon"></i>
-                        <span>Dark Mode</span>
-                    </button>
+                <div class="right-controls">
+                    <!-- Theme toggle moved to left side -->
                 </div>
             </div>
         </header>
@@ -81,66 +141,7 @@
                 </div>
             </div>
 
-            <div class="settings-container">
-                <div class="settings-header" id="settings-header">
-                    <h2>Settings</h2>
-                    <button class="settings-toggle" id="settings-toggle">
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-                <div class="settings-content" id="settings-content">
-                    <div class="settings-group">
-                        <div class="setting">
-                            <label for="focus-duration">Focus Duration (minutes)</label>
-                            <input type="number" id="focus-duration" min="1" max="60" value="25">
-                        </div>
-                        <div class="setting">
-                            <label for="break-duration">Break Duration (minutes)</label>
-                            <input type="number" id="break-duration" min="1" max="30" value="5">
-                        </div>
-                        <div class="setting">
-                            <label for="long-break-duration">Long Break Duration (minutes)</label>
-                            <input type="number" id="long-break-duration" min="1" max="60" value="15">
-                        </div>
-                        <div class="setting">
-                            <label for="sessions-until-long-break">Sessions Until Long Break</label>
-                            <input type="number" id="sessions-until-long-break" min="1" max="10" value="4">
-                        </div>
-                    </div>
-                    <div class="settings-group">
-                        <div class="setting">
-                            <label for="sound-enabled">Sound Notifications</label>
-                            <input type="checkbox" id="sound-enabled" checked>
-                        </div>
-                        <div class="setting">
-                            <label for="auto-start-breaks">Auto-start Breaks</label>
-                            <input type="checkbox" id="auto-start-breaks">
-                        </div>
-                        <div class="setting">
-                            <label for="auto-start-focus">Auto-start Focus</label>
-                            <input type="checkbox" id="auto-start-focus">
-                        </div>
-                    </div>
-                    
-                    <div class="settings-group">
-                        <h3>Statistics</h3>
-                        <div class="stats-grid">
-                            <div class="stat">
-                                <div class="stat-value" id="completed-sessions">0</div>
-                                <div class="stat-label">Sessions Completed</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value" id="total-focus-time">0</div>
-                                <div class="stat-label">Minutes Focused</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value" id="current-streak">0</div>
-                                <div class="stat-label">Current Streak</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Settings moved to header -->
         </main>
 
         <!-- Footer removed as requested -->
