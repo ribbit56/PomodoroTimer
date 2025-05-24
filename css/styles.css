@@ -146,7 +146,7 @@ main {
     border-radius: var(--border-radius);
     padding: 1rem;
     box-shadow: var(--box-shadow);
-    width: 350px;
+    width: 500px;
     margin: 0;
     height: fit-content;
 }
@@ -492,6 +492,27 @@ button:disabled {
     gap: 0.5rem;
 }
 
+.task-edit-input {
+    flex: 1;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+}
+
+.task-edit-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 99, 71, 0.2);
+}
+
+.task-item.editing {
+    background-color: rgba(74, 111, 165, 0.05);
+}
+
 .task-btn {
     background: none;
     border: none;
@@ -521,6 +542,14 @@ button:disabled {
 
 .delete-btn:hover {
     background-color: rgba(244, 67, 54, 0.1);
+}
+
+.edit-btn {
+    color: var(--secondary-color);
+}
+
+.edit-btn:hover {
+    background-color: rgba(74, 111, 165, 0.1);
 }
 
 .clear-tasks-btn {
